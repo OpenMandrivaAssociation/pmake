@@ -7,6 +7,7 @@ License:	BSD
 Group:		Development/Other
 Source0:	http://ftp.debian.org/debian/dists/potato/main/source/devel/%{name}_%{version}-3.2.tar.bz2
 Patch0:         pmake-1.45-gcc4.patch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 Make is a GNU tool which allows users to build and install programs
