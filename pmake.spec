@@ -1,12 +1,13 @@
 Summary:	The BSD 4.4 version of make
 Name:		pmake
 Version:	1.45
-Release:	%mkrel 6
+Release:	%mkrel 7
 Epoch:		1
 License:	BSD
 Group:		Development/Other
 Source0:	http://ftp.debian.org/debian/dists/potato/main/source/devel/%{name}_%{version}-3.2.tar.bz2
 Patch0:         pmake-1.45-gcc4.patch
+Patch1:		pmake_1.45-3.2-LDFLAGS.diff
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
@@ -23,7 +24,8 @@ build programs which require using pmake instead of make.
 %prep
 
 %setup -q
-%patch0 -p1
+%patch0 -p1 -b .gcc4
+%patch1 -p0 -b .LDFLAGS
 
 %build
 make -f Makefile.boot \
@@ -33,7 +35,8 @@ make -f Makefile.boot \
 	-I. \
 	-DMACHINE=\\\"mandrake\\\" \
 	-DMACHINE_ARCH=\\\"`arch`\\\"" \
-	CC=gcc
+	CC=gcc \
+        LDFLAGS="%{ldflags}"
 touch build
 
 
@@ -63,5 +66,3 @@ rm -rf %{buildroot}
 %dir %{_datadir}/mk
 %{_datadir}/mk/*
 %{_mandir}/man1/*
-
-
