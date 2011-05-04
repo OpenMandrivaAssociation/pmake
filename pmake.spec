@@ -1,7 +1,7 @@
 Summary:	The BSD 4.4 version of make
 Name:		pmake
 Version:	1.45
-Release:	%mkrel 10
+Release:	%mkrel 11
 Epoch:		1
 License:	BSD
 Group:		Development/Other
