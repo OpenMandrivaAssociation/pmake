@@ -1,0 +1,50 @@
+--- pmake-1.45/lst.lib/lstInt.h.jj	2000-03-05 15:17:04.000000000 -0500
++++ pmake-1.45/lst.lib/lstInt.h	2005-03-16 16:57:45.000000000 -0500
+@@ -110,4 +110,4 @@ typedef struct	{
+  */
+ #define LstIsEmpty(l)	(((List)l)->firstPtr == NilListNode)
+ 
+-#endif _LSTINT_H_
++#endif /* _LSTINT_H_ */
+--- pmake-1.45/sprite.h.jj	1996-11-07 07:22:21.000000000 -0500
++++ pmake-1.45/sprite.h	2005-03-16 15:47:18.000000000 -0500
+@@ -58,10 +58,10 @@
+ typedef int Boolean;
+ #ifndef TRUE
+ #define TRUE	1
+-#endif TRUE
++#endif /* TRUE */
+ #ifndef FALSE
+ #define FALSE	0
+-#endif FALSE
++#endif /* FALSE */
+ 
+ /*
+  * Functions that must return a status can return a ReturnStatus to
+@@ -92,7 +92,7 @@ typedef int  ReturnStatus;
+ #define USER_NIL 	0
+ #ifndef NULL
+ #define NULL	 	0
+-#endif NULL
++#endif /* NULL */
+ 
+ /*
+  * An address is just a pointer in C.  It is defined as a character pointer
+--- pmake-1.45/job.h.jj	2000-03-05 15:44:47.000000000 -0500
++++ pmake-1.45/job.h	2005-03-16 16:55:00.000000000 -0500
+@@ -202,6 +202,7 @@ typedef struct Shell {
+ }               Shell;
+ 
+ 
++#ifdef REMOTE
+ extern char 	*targFmt;   	/* Format string for banner that separates
+ 				 * output from multiple jobs. Contains a
+ 				 * single %s where the name of the node being
+@@ -216,6 +217,7 @@ extern Lst  	jobs;	    	/* List of activ
+ extern Lst  	stoppedJobs;	/* List of jobs that are stopped or didn't
+ 				 * quite get started */
+ extern Boolean	jobFull;    	/* Non-zero if no more jobs should/will start*/
++#endif
+ 
+ 
+ void Job_Touch __P((GNode *, Boolean));

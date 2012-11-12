@@ -1,0 +1,19 @@
+--- Makefile.boot	1998-05-22 13:12:49.000000000 +0200
++++ Makefile.boot.oden	2008-12-22 14:36:51.000000000 +0100
+@@ -15,6 +15,7 @@
+ CFLAGS= -I. -DTARGET_MACHINE=\"${MACHINE}\" -DTARGET_MACHINE_ARCH=\"${MACHINE_ARCH}\" \
+ 	-DMAKE_BOOTSTRAP
+ LIBS=
++LDFLAGS=
+ 
+ OBJ=arch.o buf.o compat.o cond.o dir.o for.o hash.o job.o main.o make.o \
+     parse.o str.o suff.o targ.o var.o util.o
+@@ -31,7 +32,7 @@
+ 
+ bmake: ${OBJ} ${LIBOBJ}
+ #	@echo 'make of make and make.0 started.'
+-	${CC} ${CFLAGS} ${OBJ} ${LIBOBJ} -o bmake ${LIBS}
++	${CC} ${CFLAGS} ${LDFLAGS} ${OBJ} ${LIBOBJ} -o bmake ${LIBS}
+ 	@ls -l $@
+ #	nroff -h -man make.1 > make.0
+ #	@echo 'make of make and make.0 completed.'
