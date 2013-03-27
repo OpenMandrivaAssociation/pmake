@@ -35,7 +35,7 @@ make -f Makefile.boot \
 	-I. \
 	-DMACHINE=\\\"mandrake\\\" \
 	-DMACHINE_ARCH=\\\"`arch`\\\"" \
-	CC=gcc \
+	CC=%{__cc} \
         LDFLAGS="%{ldflags}"
 touch build
 
@@ -56,11 +56,7 @@ for file in mk/*; do
     install -m 644 $file %{buildroot}/%{_datadir}/mk
 done
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc PSD.doc/tutorial.ms
 %{_bindir}/*
 %dir %{_datadir}/mk
