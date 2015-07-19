@@ -2,7 +2,7 @@ Summary:	The BSD 4.4 version of make
 Name:		pmake
 Epoch:		1
 Version:	1.45
-Release:	20
+Release:	21
 License:	BSD
 Group:		Development/Other
 Source0:	http://ftp.debian.org/debian/dists/potato/main/source/devel/%{name}_%{version}-3.2.tar.bz2
