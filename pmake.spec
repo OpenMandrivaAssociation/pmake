@@ -9,6 +9,7 @@ Source0:	http://ftp.debian.org/debian/dists/potato/main/source/devel/%{name}_%{v
 Patch0:		pmake-1.45-gcc4.patch
 Patch1:		pmake_1.45-3.2-LDFLAGS.diff
 
+BuildRequires:	make
 %description
 Make is a GNU tool which allows users to build and install programs
 without any significant knowledge of the build process.  Details about
